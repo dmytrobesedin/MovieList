@@ -11,16 +11,23 @@ extension Color {
     public static var brandColor: Color {
         return Color(hex: "#EF913B")
     }
-
+    
     public static var systemGray: Color {
         return Color(hex: "#AEAEB2")
     }
-
+    
+    public static var systemDarkGray: Color {
+        return Color(hex: "#7C7C80")
+    }
+    
     public static var systemDark: Color {
         return Color(hex: "#363638")
     }
-
-
+    
+    public static var systemDarkWhite: Color {
+        return Color(hex: "#EFEFEF")
+    }
+    
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0
@@ -36,7 +43,7 @@ extension Color {
         default:
             (a, r, g, b) = (1, 1, 1, 0)
         }
-
+        
         self.init(
             .sRGB,
             red: Double(r) / 255,

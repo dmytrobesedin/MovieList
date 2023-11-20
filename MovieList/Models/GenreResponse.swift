@@ -1,5 +1,5 @@
 //
-//  Genre.swift
+//  GenreResponse.swift
 //  MovieList
 //
 //  Created by Dmytro Besedin on 20.11.2023.
