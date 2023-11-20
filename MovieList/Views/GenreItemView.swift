@@ -20,6 +20,7 @@ struct GenreItemView: View {
                     .font(.setSFProText(size: 17))
                     .multilineTextAlignment(.leading)
                     .lineLimit(1)
+                    .fixedSize()
                     .foregroundColor(genre.isSelected ? .brandColor : (genre.isEqual ? .systemDarkWhite : .systemGray))
                 
                 if genre.isSelected {
@@ -29,7 +30,7 @@ struct GenreItemView: View {
                         .animation(.easeInOut, value: genre.isSelected)
                 }
             }
-            .padding(.horizontal, 10)
+            .padding(.horizontal, 9)
             .padding(.vertical, 8)
             .background(genre.isSelected ? Color.black : (genre.isEqual ? .brandColor : .systemDark))
             .cornerRadius(100)
