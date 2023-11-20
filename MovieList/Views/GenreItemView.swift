@@ -9,39 +9,42 @@ import SwiftUI
 
 struct GenreItemView: View {
     @Binding var genre: Genre
-    //@State var genreButtonSelected: Bool = false
-
+    
     var body: some View {
         Button(action: {
             genre.isSelected.toggle()
-            //self.genre.isSelected = genreButtonSelected
+            genre.isEqual = false
         }) {
-            HStack {
+            HStack(alignment: .center, spacing: 4) {
                 Text(genre.name.lowercased())
                     .font(.setSFProText(size: 17))
                     .multilineTextAlignment(.leading)
-                    .foregroundColor(genre.isSelected ? .brandColor : .systemGray)
-
+                    .lineLimit(1)
+                    .foregroundColor(genre.isSelected ? .brandColor : (genre.isEqual ? .systemDarkWhite : .systemGray))
+                
                 if genre.isSelected {
                     Image(systemName: Constants.xmark)
                         .foregroundColor(.brandColor)
-                        .font(.system(size: 12))
+                        .font(.system(size: 10))
                         .animation(.easeInOut, value: genre.isSelected)
                 }
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 10)
             .padding(.vertical, 8)
-            .background(genre.isSelected ? Color.black : .systemDark)
+            .background(genre.isSelected ? Color.black : (genre.isEqual ? .brandColor : .systemDark))
             .cornerRadius(100)
             .overlay(
                 RoundedRectangle(cornerRadius: 100)
-                    .stroke(genre.isSelected ? Color.brandColor.opacity(0.25) : .systemDark.opacity(0.25))
+                    .stroke(genre.isSelected ? Color.brandColor.opacity(0.25) :(genre.isEqual ? .brandColor.opacity(0.25) : .systemDark.opacity(0.25)) )
             )
+        }
+        .onChange(of: genre.isSelected) { _ in
+            genre.isEqual = false
         }
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct GenreItemView_Previews: PreviewProvider {
     static var previews: some View {
         GenreItemView(genre: .constant(Genre.genreExample))
     }
