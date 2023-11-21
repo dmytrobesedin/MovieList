@@ -2,5 +2,5 @@
 
 Demo video 
 
-https://github.com/dmytrobesedin/MovieList/assets/17764756/86402e8c-50eb-49c5-8004-c20223b75d63
+https://github.com/dmytrobesedin/MovieList/assets/17764756/af881791-f286-4ff7-8d76-1cacbfde2c9a
 
