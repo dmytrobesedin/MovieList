@@ -51,6 +51,9 @@ struct FilterGenreView: View {
                 viewModel.updateSelectedGenre()
             }
         }
+        .onChange(of: viewModel.genres) { _ in
+            viewModel.sortedGenres()
+        }
     }
 
     private var categoryView: some View {

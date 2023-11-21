@@ -141,4 +141,10 @@ final class FilterGenreViewModel: ObservableObject {
             return genre
         })
     }
+
+    func sortedGenres() {
+        if !genres.isEmpty {
+            genres.sort { $0.isSelected && !$1.isSelected }
+        }
+    }
 }
